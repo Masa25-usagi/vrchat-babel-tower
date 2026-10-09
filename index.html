@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VRChat バベルの塔</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">VRChat OSC translation prototype</p>
+      <h1>バベルの塔</h1>
+      <p class="lead">自分の言葉を翻訳して、送る前に確認します。</p>
+      <p id="status" class="status" role="status">待機中</p>
+      <p id="wsState" class="badge">WebSocket 接続待ち</p>
+      <div class="controls">
+        <label>話す言語
+          <select id="sourceLang"><option value="ja-JP">日本語</option><option value="en-US">English</option></select>
+        </label>
+        <label>翻訳先
+          <select id="targetLang"><option value="en">English</option><option value="ja">日本語</option><option value="ko">한국어</option></select>
+        </label>
+      </div>
+      <div class="controls toggles">
+        <label class="toggle-card"><input id="safeMode" type="checkbox" checked>練習モード（VRChatへ送らない）</label>
+        <label class="toggle-card"><input id="autoSend" type="checkbox">音声の翻訳後に自動送信</label>
+        <label class="toggle-card"><input id="speakTranslated" type="checkbox">翻訳文を読み上げる</label>
+      </div>
+      <div class="buttons">
+        <button id="toggleMic" type="button">音声認識を開始</button>
+        <button id="toggleVrMute" type="button">VRChatマイクを切り替え</button>
+      </div>
+      <p class="tips">翻訳時には入力文をMyMemoryへ送信します。ブラウザの音声認識もサービスへ音声を送る場合があります。秘密や個人情報を入力しないでください。</p>
+    </section>
+    <section class="panel">
+      <h2>翻訳とプレビュー</h2>
+      <label class="field">原文<textarea id="sourceText" rows="4" placeholder="翻訳したい文を入力"></textarea></label>
+      <label class="field">翻訳文<textarea id="translatedText" rows="4" placeholder="翻訳結果を確認・編集"></textarea></label>
+      <div class="buttons"><button id="sendManual" type="button" class="primary">翻訳して送信／練習</button></div>
+      <div class="preview-card"><p id="chatPreview" class="chat-preview"></p><p id="charCount">0 / 144</p></div>
+      <div class="history-wrap"><h3>送信履歴</h3><ul id="historyList" class="history-list"></ul></div>
+      <div class="log-wrap"><h3>状態</h3><pre id="log"></pre></div>
+    </section>
+  </main>
+</body>
+</html>

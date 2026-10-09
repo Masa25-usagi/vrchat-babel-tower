@@ -1,0 +1,17 @@
+{
+  "name": "babel-tower-vrchat",
+  "version": "1.0.0",
+  "description": "VRChat リアルタイム翻訳ツール - バベルの塔",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.16.0",
+    "node-osc": "^9.1.0"
+  },
+  "license": "MIT",
+  "private": true
+}
